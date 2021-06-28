@@ -134,8 +134,8 @@ open class WSTagView: UIView, UITextInputTraits {
     // MARK: - Styling
 
     fileprivate func updateColors() {
-        self.backgroundColor = selected ? selectedColor : tintColor
-        textLabel.textColor = selected ? selectedTextColor : textColor
+        self.backgroundColor = selected ? selectedColor : .clear
+        textLabel.textColor = selected ? selectedTextColor : self.tintColor
     }
 
     internal func updateContent(animated: Bool) {
@@ -191,7 +191,7 @@ open class WSTagView: UIView, UITextInputTraits {
     // MARK: - Attributed Text
     fileprivate func updateLabelText() {
         // Unselected shows "[displayText]," and selected is "[displayText]"
-        textLabel.text = displayText + displayDelimiter
+        textLabel.text = "#" + displayText + displayDelimiter
         // Expand Label
         let intrinsicSize = self.intrinsicContentSize
         frame = CGRect(x: 0, y: 0, width: intrinsicSize.width, height: intrinsicSize.height)
